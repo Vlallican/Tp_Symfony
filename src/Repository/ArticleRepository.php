@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+ 
 
 /**
  * @method Article|null find($id, $lockMode = null, $lockVersion = null)
@@ -18,10 +19,11 @@ class ArticleRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Article::class);
     }
+    
 
-    // /**
-    //  * @return Article[] Returns an array of Article objects
-    //  */
+    /**
+     * @return Article[] Returns an array of Article objects
+     */
     /*
     public function findByExampleField($value)
     {
