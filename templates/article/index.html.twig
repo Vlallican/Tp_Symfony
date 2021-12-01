@@ -17,4 +17,27 @@
         <li>Your template at <code><a href="{{ '/app/templates/article/index.html.twig'|file_link(0) }}">templates/article/index.html.twig</a></code></li>
     </ul>
 </div>
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Titre</th>
+            <th>Date</th>
+            <th>Contenu</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for article in articles %}
+        <tr>
+            <td>{{article.id}}</td>
+            <td><a href="{{ path('article.show', {id : article.id}) }}">{{article.title}}</a></td>
+            <td>{{article.createdAt|date("d-m-Y")}}</td>
+            <td>{{article.content|slice(0,299)~"..."}}<a href="{{ path('article.show', {id : article.id}) }}">Voir plus</a></td>
+        </tr>   
+        {% endfor %}
+    </tbody>    
+</table>
+{{ knp_pagination_render(articles) }}
 {% endblock %}
+
+
